@@ -40,8 +40,8 @@ window.renderStatistics = function (ctx, players, times) {
 
   for (var i = 0; i < players.length; i++) {
     ctx.fillStyle = 'hsl(232, ' + Math.random() * 100 + '%, 87%)';
-    ctx.fillRect(CLOUD_X + GAP * 2 + (SPACEBETWEEN + BAR_WIDTH)* i, (CLOUD_HEIGHT - GAP * 2 - (BAR_HEIGHT_MAX * times[i]) / maxTime),
-      BAR_WIDTH, (BAR_HEIGHT_MAX * times[i]) / maxTime);
+    ctx.fillRect(CLOUD_X + GAP * 2 + (SPACEBETWEEN + BAR_WIDTH) * i, (CLOUD_HEIGHT - GAP * 2 - (BAR_HEIGHT_MAX * times[i]) / maxTime),
+        BAR_WIDTH, (BAR_HEIGHT_MAX * times[i]) / maxTime);
     ctx.fillStyle = '#000';
     ctx.fillText(players[i], CLOUD_X + GAP * 2 + (SPACEBETWEEN + BAR_WIDTH) * i, CLOUD_HEIGHT - GAP);
   }
