@@ -41,10 +41,7 @@ var renderColumn = function (ctx, player, time, maxTime, i) {
   var x = CLOUD_X + GAP * 2 + (GAP_X + BAR_WIDTH) * i;
   var height = BAR_HEIGHT_MAX * time / maxTime;
   var y = CLOUD_HEIGHT - GAP * 2 - height;
-  ctx.fillStyle = 'hsl(232, ' + Math.random() * 100 + '%, 87%)';
-  if (player === 'Вы') {
-    ctx.fillStyle = 'rgba(255, 0, 0, 1)';
-  }
+  ctx.fillStyle = player === 'Вы' ? 'rgba(255, 0, 0, 1)' : 'hsl(230, ' + Math.random() * 100 + '%, 50%)';
   ctx.fillRect(x, y, BAR_WIDTH, height);
   renderText(ctx, player, x, CLOUD_HEIGHT - GAP);
   renderText(ctx, time, x, CLOUD_HEIGHT - 3 * GAP - height);
@@ -59,6 +56,6 @@ window.renderStatistics = function (ctx, players, times) {
   var maxTime = getMaxElement(times);
 
   for (var i = 0; i < players.length; i++) {
-    renderColumn(ctx, players[i], Math.floor(times[i]), maxTime, i);
+    renderColumn(ctx, players[i], Math.floor(times[i]), Math.floor(maxTime), i);
   }
 };
