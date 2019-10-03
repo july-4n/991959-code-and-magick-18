@@ -7,25 +7,39 @@ var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 var WIZARDS_NUMBER = 4;
 
 //  получение случайного числа из массива
-var getRandomElement = function (arr) {
-  var max = arr.length;
-  var randomElement = Math.round(Math.random() * (max - 1));
-  return arr[randomElement];
+var getRandomElement = function (elements) {
+  var max = elements.length;
+  var randomIndex = Math.round(Math.random() * (max - 1));
+  return elements[randomIndex];
 };
-//  генерируем случайное имя и свойства волшебника
-var wizards = [];
 
-for (var i = 0; i < WIZARDS_NUMBER; i++) {
+//  генерируем случайное имя и свойства волшебника
+var getWizard = function () {
   var wizard = {
     name: getRandomElement(WIZARD_NAMES) + ' ' + getRandomElement(WIZARD_SURNAMES),
     coatColor: getRandomElement(COAT_COLORS),
     eyesColor: getRandomElement(EYES_COLORS)
   };
-  wizards[i] = wizard;
-}
+  return wizard;
+};
+getWizard();
+
+var getRandomWizards = function () {
+  var wizards = [];
+
+  for (var i = 0; i < WIZARDS_NUMBER; i++) {
+    var wizard = getWizard();
+    wizards.push(wizard);
+  }
+  return wizards;
+};
+
 // показываем окно настроек пользователя
-var userDialog = document.querySelector('.setup');
-userDialog.classList.remove('hidden');
+var openClose = function () {
+  var userDialog = document.querySelector('.setup');
+  userDialog.classList.remove('hidden');
+};
+openClose();
 
 var similarListElement = document.querySelector('.setup-similar-list');
 //  показываем блок с похожими персонажами
@@ -44,11 +58,14 @@ var renderWizard = function (magician) {
   return wizardElement;
 };
 
-var fragment = document.createDocumentFragment();
-//  выводим 4 окна с волшебниками
-for (var j = 0; j < wizards.length; j++) {
-  fragment.appendChild(renderWizard(wizards[j]));
-}
-similarListElement.appendChild(fragment);
+var render = function (wizards) {
+  var fragment = document.createDocumentFragment();
+  //  выводим 4 окна с волшебниками
+  for (var j = 0; j < wizards.length; j++) {
+    fragment.appendChild(renderWizard(wizards[j]));
+  }
+  return fragment;
+};
+similarListElement.appendChild(render(getRandomWizards()));
 
-userDialog.querySelector('.setup-similar').classList.remove('hidden');
+document.querySelector('.setup-similar').classList.remove('hidden');
