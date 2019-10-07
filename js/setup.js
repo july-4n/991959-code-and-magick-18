@@ -22,8 +22,8 @@ var getWizard = function () {
   };
   return wizard;
 };
-getWizard();
 
+//  наполняем массив нужным количеством сгенерированных объектов
 var getRandomWizards = function () {
   var wizards = [];
 
