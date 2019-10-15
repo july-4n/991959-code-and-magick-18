@@ -74,9 +74,9 @@ var onPopupEscPress = function (evt) {
   }
 };
 //  показываем окно (убираем класс hidden с элемента)
-  var openWindow = function (element) {
-   element.classList.remove('hidden');
- };
+var openWindow = function (element) {
+  element.classList.remove('hidden');
+};
 openWindow(document.querySelector('.setup-similar'));
 
 //  функция для открытия окна
