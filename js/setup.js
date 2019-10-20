@@ -124,38 +124,41 @@ setupUserName.addEventListener('keydown', function (evt) {
 
 //  изменение цвета мантии по нажатию
 var wizardCoat = document.querySelector('.wizard-coat');
+var coatColorInput = document.querySelector('[name="coat-color"]');
 
-var coatClickHandler = function () {
+var changeCoatColor = function () {
   var wizardColorCoat = getRandomElement(COAT_COLORS);
   wizardCoat.style = 'fill:' + wizardColorCoat;
-  document.querySelector('[name="coat-color"]').value = wizardColorCoat;
+  coatColorInput.value = wizardColorCoat;
 };
 
 wizardCoat.addEventListener('click', function () {
-  coatClickHandler();
+  changeCoatColor();
 });
 
 //  изменение цвета глаз по нажатию
 var wizardEyes = document.querySelector('.wizard-eyes');
+var eyesColorInput = document.querySelector('[name="eyes-color"]');
 
-var eyesColorHandler = function () {
+var changeEyesColor = function () {
   var wizardEyesColor = getRandomElement(EYES_COLORS);
   wizardEyes.style = 'fill:' + wizardEyesColor;
-  document.querySelector('[name="eyes-color"]').value = wizardEyesColor;
+  eyesColorInput.value = wizardEyesColor;
 };
 wizardEyes.addEventListener('click', function () {
-  eyesColorHandler();
+  changeEyesColor();
 });
 
 //  изменение цвета фаерболов по нажатию
 var fireball = document.querySelector('.setup-fireball');
+var fireballColorInput = document.querySelector('[name="fireball-color"]');
 
-var fireballColorHandler = function () {
+var changeFireballColor = function () {
   var fireballColor = getRandomElement(FIREBALL_COLORS);
   fireball.style.backgroundColor = fireballColor;
-  document.querySelector('[name="fireball-color"]').value = fireballColor;
+  fireballColorInput.value = fireballColor;
 };
 
 fireball.addEventListener('click', function () {
-  fireballColorHandler();
+  changeFireballColor();
 });
