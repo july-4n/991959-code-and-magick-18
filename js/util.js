@@ -18,8 +18,8 @@ window.util = (function () {
     }
   };
 })();
-  //  получение случайного числа из массива
+//  получение случайного числа из массива
 window.util.getRandomElement = function (elements) {
-   var max = elements.length;
-   return elements[Math.round(Math.random() * (max - 1))];
- }
+  var max = elements.length;
+  return elements[Math.round(Math.random() * (max - 1))];
+};

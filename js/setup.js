@@ -31,7 +31,7 @@
 
   var changeEyesColor = function () {
     var wizardEyesColor = window.util.getRandomElement(window.EYES_COLORS);
-    wizardEyes.style = 'fill:' +wizardEyesColor;
+    wizardEyes.style = 'fill:' + wizardEyesColor;
     eyesColorInput.value = wizardEyesColor;
   };
   wizardEyes.addEventListener('click', function () {

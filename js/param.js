@@ -53,11 +53,9 @@
     return fragment;
   };
   similarListElement.appendChild(render(getRandomWizards()));
-  //console.log(FIREBALL_COLORS);
 
   window.FIREBALL_COLORS = FIREBALL_COLORS;
   window.COAT_COLORS = COAT_COLORS;
   window.EYES_COLORS = EYES_COLORS;
 
 })();
- //console.log(window.FIREBALL_COLORS);

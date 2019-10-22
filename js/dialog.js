@@ -77,9 +77,9 @@
       document.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseup', onMouseUp);
 
-      if (dragged) {
-        var onClickPreventDefault = function (evt) {
-          evt.preventDefault();
+      if (dragged) { //  error  'evt' is already declared in the upper scope no-shadow
+        var onClickPreventDefault = function (e) {
+          e.preventDefault();
           dialogHandler.removeEventListener('click', onClickPreventDefault);
         };
         dialogHandler.addEventListener('click', onClickPreventDefault);
