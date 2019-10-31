@@ -1,11 +1,11 @@
 'use strict';
 
-window.util = (function () {
+(function () {
 
   var ESC_KEYCODE = 27;
   var ENTER_KEYCODE = 13;
 
-  return {
+  window.util = {
     isEscEvent: function (evt, action) {
       if (evt.keyCode === ESC_KEYCODE) {
         action();
@@ -17,9 +17,9 @@ window.util = (function () {
       }
     }
   };
+  //  получение случайного числа из массива
+  window.util.getRandomElement = function (elements) {
+    var max = elements.length;
+    return elements[Math.round(Math.random() * (max - 1))];
+  };
 })();
-//  получение случайного числа из массива
-window.util.getRandomElement = function (elements) {
-  var max = elements.length;
-  return elements[Math.round(Math.random() * (max - 1))];
-};
